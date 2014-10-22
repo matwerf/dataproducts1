@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>How many days old are you?</title>
+  <meta charset="utf-8">
+  <meta name="description" content="How many days old are you?">
+  <meta name="author" content="C S S">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>How many days old are you?</h1>
+    <h2>Data science slidfy/shiny project</h2>
+    <p>C S S<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>What can you calculate</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The program provides three options:</p>
+
+<ol>
+<li>How many days have passed between when men walked on the moon and the date in question (inclusive).</li>
+<li>What day is 100 days later?</li>
+<li>Or you can calculate how many days you&#39;ve been alive - or between two points inclusive.</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Set-up</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>Entering the first date in question into the first date box, adds the selected date into the date variable, (the default is Jan 20, 2014 if it is not changed).</p></li>
+<li><p>The next step is to pick an option, there are three choices provided as Radio Buttons.</p></li>
+<li><p>If choice 3 is picked, a new date can be selected (the default is todays date).</p></li>
+<li><p>Then the submit button should be clicked to calculate the number of days difference or the new date.</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Options</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Selecting option #1 calculates the days between the selected date and the date of the first man on the moon (July 16, 1969).</p>
+
+<p>The data is then passed through the following function.</p>
+
+<pre><code class="r">daysbetween &lt;- function(date1,date2) {
+  if(date2 &gt; date1) (date2-date1 +1)
+  else if(date2 &lt; date1) ((date1-date2 +1)*-1)
+  else if(date2 == date1) 1
+}
+</code></pre>
+
+<p>Giving an output of the inclusive time difference.</p>
+
+<pre><code class="r">daysbetween(date1,as.Date(&quot;1969-07-16&quot;))
+</code></pre>
+
+<pre><code>## Time difference of -16260 days
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>How many days have you been alive?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Selecting option#2 calcultes the date that would be 100 days later that the starting date inclusive.</p>
+
+<pre><code class="r">date1 + 99
+</code></pre>
+
+<pre><code>## [1] &quot;2014-04-29&quot;
+</code></pre>
+
+<p>Selecting option #3 calculates the days between the selected date and a second date - by using your birthday for the inital date and todays date as the second date (the default), the number of days you have been alive can be calculated.</p>
+
+<p>Giving an output of the inclusive time difference.</p>
+
+<pre><code class="r">daysbetween(date1,date2)
+</code></pre>
+
+<pre><code>## Time difference of 275 days
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='What can you calculate'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Set-up'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Options'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='How many days have you been alive?'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
